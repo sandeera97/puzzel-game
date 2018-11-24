@@ -1,0 +1,155 @@
+<html>
+<head>
+    <script type="text/javascript" src="Script/jigsawScript.js"></script>
+    <script type="text/javascript">
+
+        var game = null;
+        var imageID = "img1";
+        var totalRows = 3;
+        var totalColumns = 3;
+
+
+        function InitGame() {
+            LoadNewImage(imageID);
+        }
+
+        function LoadNewImage(imgID) {
+            imageID = imgID;
+            
+            SetRowsColumn();
+            
+            LoadGame();
+        }
+        
+        function LoadGame() {
+            var canvasID = "canJigsaw";
+
+            game = new jigsaw(canvasID, imageID, totalRows, totalColumns);
+
+            game.initDrawing();
+
+        }
+
+        function ShowPreview() {
+            if (game) {
+
+                game.showPreview();
+
+            }
+        }
+
+        function SetRowsColumn() {
+            var r1 = document.getElementById("rd1");
+            var r2 = document.getElementById("rd2");
+            var r3 = document.getElementById("rd3");
+
+            if (r1.checked) {
+                totalRows = 2;
+                totalColumns = 2;
+
+            }
+            else if (r2.checked) {
+                totalRows = 3;
+                totalColumns = 3;
+
+            }
+            else if (r3.checked) {
+                totalRows = 4;
+                totalColumns = 4;
+
+            }
+        }
+    </script>
+    <center><font face="lithos pro" color="#000000" size="7"><b>Image Puzzle Game V.1.1
+    </b></font></center>
+    <center><font face="arial" color=" #510001" size="1.5"><b>gingle bell edition
+    </b></font></center>
+ 
+</head>
+<body onload="InitGame();">
+   <body background="Images/back1.jpg">
+   <audio autoplay>
+   <source src="Audio/microsoft flight simulator x theme song.mp3"></audio>
+   
+   
+   <table>
+        <tr>
+            <td>
+                <div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td>
+                   
+                            </td>
+                            <td width="150px">
+               
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <canvas id="canJigsaw" width="800" height="500" style="border: green solid 10px;"></canvas>
+                </div>
+            </td>
+            <td width="200px">&nbsp;  
+            </td>
+         <td style="vertical-align: top;">
+                <div style="font-size:25px; text-align:center;"><u><b>Click on image to select.</b><br></u></div><br>
+                <div align="right" style="height: 300px; width: 250px; border: purple solid 7px; overflow: auto;">
+                    <div>
+                        <img id="img1" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/da.jpg"></img>
+                    </div>
+                    <div>
+                        <img id="img2" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/ad.jpg"></img>
+                    </div>
+                    <div>
+                        <img id="img3" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/j.jpg"></img>
+                    </div>
+                     <div>
+                        <img id="img4" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/x.jpg"></img>
+                    </div>
+                    <div>
+                        <img id="img5" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/car.jpg"></img>
+                    </div>
+                    <div>
+                        <img id="img6" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/k.jpg"></img>
+                    </div>
+                    <div>
+                        <img id="img7" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/l.jpg"></img>
+                    </div>
+                     <div>
+                        <img id="img8" width="300" height="200" onclick="LoadNewImage(this.id);" src="Images/d.jpg"></img>
+                    </div>
+                    
+                </div>
+            </td>
+        </tr>
+    </table>
+       <span >
+       <center> <input type="button" value="Show Preview" onclick="ShowPreview()" />
+       </span><br><br>
+
+		<button onclick="myFunction()">About</button>
+		<script>
+			function myFunction() {
+    		alert("This Puzzel game developed by Dileepa Sandeera                                      and we update this game in seasons                                                         Iron Hide Group");
+			}
+		   </script>
+      	<button onclick="my1Function()">Help and Rules</button>
+		<script>
+			function my1Function() {
+    		alert("Drag and Drop the small Squares");
+			}
+		   </script>
+       
+  	 <span>
+       <input id="rd1" type="radio" value="Easy" name="r1" onclick="InitGame();"/>
+       <b>
+       Easy</b>
+       <input id="rd2" type="radio" value="Medium" name="r1" onclick="InitGame();" checked /><b>
+       Medium</b>
+       <input id="rd3" type="radio" value="Hard" name="r1" onclick="InitGame();" /><b>
+       Hard</b></span> </center>
+ 
+</body>
+</html>
